@@ -27,7 +27,7 @@ function HistoriqueCstAdmin() {
   useEffect(() => {
     async function fetchHistorique() {
       try {
-        const response = await axios.post("http://localhost:5000/api/HistoriqueAdminCst", { id });
+        const response = await axios.post("http://localhost:5500/api/HistoriqueAdminCst", { id });
         setHistorique(response.data.results);
       } catch (error) {
         console.error("Error fetching extension steps history:", error);
@@ -38,7 +38,7 @@ function HistoriqueCstAdmin() {
 
   const handleView = async (idetape) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/HistoriqueAdminEtatCst", { idetat: idetape });
+      const response = await axios.post("http://localhost:5500/api/HistoriqueAdminEtatCst", { idetat: idetape });
       setEtatDetails(response.data.results);
       setShowModal(true);
     } catch (error) {
