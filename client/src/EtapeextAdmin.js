@@ -22,7 +22,7 @@ const[prov,setProv]=useState('');
 
 
   function charger() {
-    axios.post('http://localhost:5000/etapeextension')
+    axios.post('http://localhost:5500/etapeextension')
       .then(response => {
         setMessage(response.data.results);
         console.log(response.data.results,'oul');
@@ -33,7 +33,7 @@ const[prov,setProv]=useState('');
   }
 
   function fetchPlans() {
-    axios.post('http://localhost:5000/api/plans')
+    axios.post('http://localhost:5500/api/plans')
       .then(response => {
         console.log(response.data.results);
         setPlans(response.data.results);
@@ -53,7 +53,7 @@ const[prov,setProv]=useState('');
   
    
     if (selectedPlanValue !== '') {
-      axios.post('http://localhost:5000/filtrerparplan', { idPlan: selectedPlanValue })
+      axios.post('http://localhost:5500/filtrerparplan', { idPlan: selectedPlanValue })
         .then(response => {
           setMessage(response.data.results);
         })
@@ -72,7 +72,7 @@ const[prov,setProv]=useState('');
 
   const handleDelete = (id,idetat) => {
     if(idetat<5){
-      axios.post('http://localhost:5000/api/modifieretapeextension', {id:id,idetat:idetat})
+      axios.post('http://localhost:5500/api/modifieretapeextension', {id:id,idetat:idetat})
       .then(response => {
       
         charger(); 
