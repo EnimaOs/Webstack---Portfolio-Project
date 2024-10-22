@@ -22,7 +22,7 @@ function Homeadmin() {
   
    
     function charger() {
-      axios.post('http://localhost:5000/plan')
+      axios.post('http://localhost:5500/plan')
           .then(response => {
           
             setplan(response.data.results);
