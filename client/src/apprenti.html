@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limite de caractères</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Saisissez un champ">
+    <p id="messageErreur" style="color: red; display: none;">Vous avez dépassé le nombre de caractères permis (10).</p>
+
+    <script>
+       
+        let input = document.getElementById("input");
+      
+        let messageErreur = document.getElementById("messageErreur");
+
+ 
+        input.addEventListener("input", function() {
+         
+            if (input.value.length > 10) {
+            
+                input.value = input.value.slice(0, 10);
+                messageErreur.style.display = "block";
+            } else {
+         
+                messageErreur.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
