@@ -39,7 +39,7 @@ const[prov,setProv]=useState('');
   });
 
   function charger() {
-    axios.post('http://localhost:5000/api/messagee', { Nom: nomValue })
+    axios.post('http://localhost:5500/api/messagee', { Nom: nomValue })
       .then(response => {
         setMessage(response.data.results);
         console.log(response.data.results,'oul');
@@ -51,7 +51,7 @@ const[prov,setProv]=useState('');
   const prevProvRef = useRef('');
 
   useEffect(() => {
-    axios.post('http://localhost:5000/api/variable', { Nom: nomValue })
+    axios.post('http://localhost:5500/api/variable', { Nom: nomValue })
       .then(response => {
         if (response.data.success) {
           console.log(response.data.nomProjet);
@@ -119,7 +119,7 @@ const[prov,setProv]=useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:5000/api/lesm', { action: 'modifier', Data: formData , id: formData.id_projet_constr , nom: formData.nom_projet })
+    axios.post('http://localhost:5500/api/lesm', { action: 'modifier', Data: formData , id: formData.id_projet_constr , nom: formData.nom_projet })
       .then(response => {
         if (response.status === 200) {
           console.log('Projet modifié avec succès:', response.data.message);
@@ -141,7 +141,7 @@ const[prov,setProv]=useState('');
 
   const handleDelete = (id,etat) => {
     if(etat!=='comptabilisé'){
-      axios.post('http://localhost:5000/api/lesm', { action: 'supprimer', id })
+      axios.post('http://localhost:5500/api/lesm', { action: 'supprimer', id })
       .then(response => {
        console.log('projet supprimé:',response.data)
         charger(); 
