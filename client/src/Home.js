@@ -23,7 +23,7 @@ function Home() {
 
   
     useEffect(() => {
-      axios.post('http://localhost:5500/api/variable', { Nom: nomValue })
+      axios.post('http://localhost:3011/api/variable', { Nom: nomValue })
         .then(response => {
           if (response.data.success) {
             console.log(response.data.nomProjet);
@@ -39,7 +39,7 @@ function Home() {
         });
     }, [nomValue]);
     function charger() {
-      axios.post('http://localhost:5500/plan')
+        axios.post('http://localhost:3011/plan')
           .then(response => {
           
             setplan(response.data.results);
@@ -57,7 +57,7 @@ function Home() {
     }, []);
     useEffect(() => {
       // Faire une requête POST à l'API pour vérifier l'existence des étapes d'extension
-      axios.post('http://localhost:5500/api/existe')
+      axios.post('http://localhost:3011/api/existe')
         .then(response => {
           if (response.data.success) {
             const swalWithBootstrapButtons = Swal.mixin({
@@ -78,13 +78,13 @@ function Home() {
             }).then((result) => {
               if (result.isConfirmed) {
                 // Faire une requête POST à l'API pour mettre à jour les étapes d'extension
-                axios.post('http://localhost:5500/api/update')
+                axios.post('http://localhost:3011/api/update')
                   .then(updateResponse => {
                     // Gérer la réponse de la mise à jour (facultatif)
                     console.log('Update successful:', updateResponse.data);
     
                     // Après la mise à jour des étapes d'extension, vérifier l'existence des étapes de construction
-                    axios.post('http://localhost:5500/api/existeconst')
+                    axios.post('http://localhost:3011/api/existeconst')
                       .then(constructionResponse => {
                         // Vérifier si la réponse indique un succès
                         if (constructionResponse.data.success) {
@@ -106,7 +106,7 @@ function Home() {
                           }).then((result) => {
                             if (result.isConfirmed) {
                               // Faire une requête POST à l'API pour mettre à jour les étapes de construction
-                              axios.post('http://localhost:5500/api/updateconst')
+                              axios.post('http://localhost:3011/api/updateconst')
                                 .then(updateResponse => {
                                   // Gérer la réponse de la mise à jour (facultatif)
                                   console.log('Update successful:', updateResponse.data);

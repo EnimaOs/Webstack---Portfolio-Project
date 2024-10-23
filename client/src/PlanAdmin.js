@@ -33,7 +33,7 @@ function PlanAdmin() {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await axios.post("http://localhost:5500/insererplan", { Data: formData });
+            const response = await axios.post("http://localhost:3011/insererplan", { Data: formData });
             console.log(response.data);
         } catch (error) {
             console.error("Error submitting form:", error);

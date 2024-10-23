@@ -20,7 +20,7 @@ const[prov,setProv]=useState('');
   const [showDropdownnnnn, setShowDropdownnnnn] = useState(false);
 
   function fetchPlans() {
-    axios.post('http://localhost:5500/api/plans')
+    axios.post('http://localhost:3011/api/plans')
       .then(response => {
         console.log(response.data.results);
         setPlans(response.data.results);
@@ -40,7 +40,7 @@ const[prov,setProv]=useState('');
   
    
     if (selectedPlanValue !== '') {
-      axios.post('http://localhost:5500/filtrerparplanconst', { idPlan: selectedPlanValue })
+      axios.post('http://localhost:3011/filtrerparplanconst', { idPlan: selectedPlanValue })
         .then(response => {
           setMessage(response.data.results);
         })
@@ -53,7 +53,7 @@ const[prov,setProv]=useState('');
     }
   };
   function charger() {
-    axios.post('http://localhost:5500/etapeconstruction')
+    axios.post('http://localhost:3011/etapeconstruction')
       .then(response => {
         setMessage(response.data.results);
         console.log(response.data.results,'oul');
@@ -76,7 +76,7 @@ const[prov,setProv]=useState('');
 
   const handleDelete = (id,idetat) => {
     if(idetat<5){
-      axios.post('http://localhost:5500/api/modifieretapeconst', {id:id,idetat:idetat})
+    axios.post('http://localhost:3011/api/modifieretapeconst', {id:id,idetat:idetat})
       .then(response => {
       
         charger(); 

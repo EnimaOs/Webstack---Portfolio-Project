@@ -29,7 +29,7 @@ function Insereretapeconst() {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-              const response = await axios.post("http://localhost:5500/charger");
+                const response = await axios.post("http://localhost:3011/charger");
                 setMessage(response.data.results);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -41,7 +41,7 @@ function Insereretapeconst() {
     useEffect(() => {
         const fetchPlan = async () => {
             try {
-              const response = await axios.post('http://localhost:5500/plan');
+                const response = await axios.post('http://localhost:3011/plan');
                 setPlan(response.data.results);
             } catch (error) {
                 console.error('Error fetching message:', error);
@@ -69,7 +69,7 @@ function Insereretapeconst() {
         e.preventDefault();
         try {
             const plaan = document.getElementsByClassName('text-2xl font-semibold text-center text-gray-700 relative top-16 1')[0].id;
-          const response = await axios.post("http://localhost:5500/inserer", { Data: formData, project_id: selectedProject, id_plan: plaan, etape: constr });
+            const response = await axios.post("http://localhost:3011/inserer", { Data: formData, project_id: selectedProject, id_plan: plaan, etape: constr });
             console.log(response.data);
         } catch (error) {
             console.error("Error submitting form:", error);
