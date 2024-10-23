@@ -27,7 +27,7 @@ const[prov,setProv]=useState('');
 });
 
   function charger() {
-    axios.post('http://localhost:5000/api/messageext')
+    axios.post('http://localhost:5500/api/messageext')
       .then(response => {
         setMessage(response.data.results);
         console.log(response.data.results,'oul');
@@ -76,7 +76,7 @@ const[prov,setProv]=useState('');
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:5000/api/lesmm', { action: 'modifier', Data: formData })
+    axios.post('http://localhost:5500/api/lesmm', { action: 'modifier', Data: formData })
       .then(response => {
         if (response.status === 200) {
           console.log('Projet modifié avec succès:', response.data.message);
@@ -98,7 +98,7 @@ const[prov,setProv]=useState('');
 
   const handleDelete = (id,etat) => {
     if(etat!=='comptabilisé'){
-      axios.post('http://localhost:5000/api/lesm', { action: 'supprimer', id })
+      axios.post('http://localhost:5500/api/lesm', { action: 'supprimer', id })
       .then(response => {
        console.log('projet supprimé:',response.data)
         charger(); 
