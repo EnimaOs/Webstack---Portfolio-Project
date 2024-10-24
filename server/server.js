@@ -11,7 +11,7 @@ let pl={};
 const con = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root",
+  password: "Aminenima!1",
   database: "pfe"
 });
 
